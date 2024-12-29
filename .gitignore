@@ -1,6 +1,28 @@
-.DS_Store
+# Dependencies
 node_modules/
+
+# Environment files
 .env
+.env.local
+.env.*.local
+
+# IDE files
 .vscode/
-*.log
+.idea/
+
+# System files
+.DS_Store
 Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build files
+dist/
+build/
+
+# Stripe payment files (since we're not using them)
+stripe-payment/
+payment.html
+server.js
