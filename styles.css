@@ -865,10 +865,14 @@ nav ul li a:hover {
 @media only screen and (max-width: 768px) {
     .tabs {
         display: none !important; /* Force hide tabs on mobile */
+        position: static !important; /* Remove fixed positioning */
+        top: auto !important;
     }
 
     .tab-content {
         display: block !important; /* Force show content */
+        margin-top: 0 !important; /* Remove top margin since tabs are hidden */
+        padding-top: 0 !important;
     }
 
     .tab-pane {
@@ -878,6 +882,12 @@ nav ul li a:hover {
         margin-bottom: 2rem;
         height: auto !important;
         overflow: visible !important;
+        position: static !important;
+    }
+
+    .sticky {
+        position: static !important;
+        top: auto !important;
     }
 
     .packages-container {
