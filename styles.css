@@ -863,20 +863,35 @@ nav ul li a:hover {
 
 /* Mobile Styles */
 @media only screen and (max-width: 768px) {
+    .nav-container ul {
+        display: none !important; /* Hide navigation links */
+    }
+
+    .nav-container {
+        justify-content: center !important; /* Center the logo */
+        padding: 1rem !important;
+    }
+
+    .logo {
+        font-size: 1.5rem !important;
+        margin: 0 !important;
+        text-align: center !important;
+    }
+
     .tabs {
-        display: none !important; /* Force hide tabs on mobile */
-        position: static !important; /* Remove fixed positioning */
+        display: none !important;
+        position: static !important;
         top: auto !important;
     }
 
     .tab-content {
-        display: block !important; /* Force show content */
-        margin-top: 0 !important; /* Remove top margin since tabs are hidden */
+        display: block !important;
+        margin-top: 0 !important;
         padding-top: 0 !important;
     }
 
     .tab-pane {
-        display: block !important; /* Force show panes */
+        display: block !important;
         opacity: 1 !important;
         visibility: visible !important;
         margin-bottom: 2rem;
