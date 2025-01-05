@@ -44,17 +44,18 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
 }
 
 .logo {
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: bold;
+    color: var(--white);
 }
 
-.desktop-nav {
+.nav-container ul {
     display: flex;
     list-style: none;
     margin: 0;
@@ -75,6 +76,48 @@ nav {
 
 .desktop-nav ul li a:hover {
     color: var(--accent-color);
+}
+
+/* Mobile Navigation */
+@media screen and (max-width: 768px) {
+    /* Navigation */
+    nav ul,
+    .nav-container ul {
+        display: none !important;
+    }
+
+    nav,
+    .nav-container {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1rem !important;
+    }
+
+    .logo {
+        display: block !important;
+        text-align: center !important;
+        width: 100% !important;
+        margin: 0 !important;
+        font-size: 1.5rem !important;
+    }
+
+    /* Content */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .package-card.featured {
+        transform: scale(1);
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process-item {
+        padding: 20px;
+    }
 }
 
 .hero {
@@ -309,30 +352,6 @@ nav {
     left: 100%;
 }
 
-@media (max-width: 768px) {
-    .package-btn {
-        padding: 14px 20px;
-        font-size: 0.9em;
-    }
-}
-
-/* Touch-up section specific styles */
-.touch-up-section {
-    padding: 80px 20px;
-    margin-top: 40px;
-    background: #f8f9fa;
-    position: relative;
-}
-
-.touch-up-section .section-description {
-    margin-bottom: 40px;
-}
-
-.packages + .touch-up-section {
-    margin-top: 40px;
-}
-
-/* Responsive adjustments */
 @media (max-width: 1024px) {
     .package-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -355,6 +374,22 @@ nav {
     .package.featured {
         transform: none;
     }
+}
+
+/* Touch-up section specific styles */
+.touch-up-section {
+    padding: 80px 20px;
+    margin-top: 40px;
+    background: #f8f9fa;
+    position: relative;
+}
+
+.touch-up-section .section-description {
+    margin-bottom: 40px;
+}
+
+.packages + .touch-up-section {
+    margin-top: 40px;
 }
 
 /* Additional Services */
@@ -865,60 +900,6 @@ nav {
 
     .package-card.featured {
         transform: scale(1);
-    }
-}
-
-/* Mobile Styles */
-@media only screen and (max-width: 768px) {
-    /* Hide all navigation items except logo */
-    .nav-container ul,
-    nav ul {
-        display: none !important;
-    }
-
-    /* Keep logo visible and centered */
-    .nav-container {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-
-    .logo {
-        display: block !important;
-        text-align: center !important;
-        width: 100% !important;
-        padding: 1rem !important;
-        margin: 0 !important;
-    }
-
-    /* Remove any fixed positioning */
-    nav {
-        position: relative !important;
-    }
-
-    /* Hide tabs */
-    .tabs {
-        display: none !important;
-    }
-
-    .tab-content {
-        display: block !important;
-    }
-
-    .tab-pane {
-        display: block !important;
-        opacity: 1 !important;
-    }
-}
-
-/* Small Phone Styles */
-@media screen and (max-width: 480px) {
-    .hero h1 {
-        font-size: 1.75rem;
-    }
-
-    .package {
-        padding: 1rem;
     }
 }
 
