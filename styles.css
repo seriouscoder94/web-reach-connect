@@ -863,165 +863,72 @@ nav ul li a:hover {
 
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
-    /* Header and Navigation */
-    .nav-container {
-        padding: 15px;
+    .tabs {
+        display: none; /* Hide tabs on mobile */
+    }
+
+    .tab-content {
+        display: block !important; /* Show all content */
+    }
+
+    .tab-pane {
+        display: block !important; /* Show all panes */
+        opacity: 1 !important;
+        margin-bottom: 2rem;
+    }
+
+    .packages-container {
         flex-direction: column;
-    }
-
-    .nav-container ul {
-        flex-direction: column;
-        width: 100%;
-        margin-top: 15px;
-    }
-
-    .nav-container ul li {
-        margin: 10px 0;
-    }
-
-    /* Package Sections */
-    .packages, .touch-up-section {
-        padding: 40px 15px;
-    }
-
-    .packages h2, .touch-up-section h2 {
-        font-size: 2em;
-        margin-bottom: 30px;
-        padding: 0 15px;
-    }
-
-    .section-description {
-        font-size: 1em;
-        padding: 0 15px;
-        margin-bottom: 30px;
-    }
-
-    .package-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 10px;
+        padding: 1rem;
     }
 
     .package {
-        min-height: auto;
-        margin-bottom: 20px;
-        padding: 25px 15px;
+        width: 100%;
+        margin: 1rem 0;
     }
 
-    .package.featured {
-        transform: none;
-        border: 2px solid #2196F3;
+    .hero {
+        padding: 2rem 1rem;
     }
 
-    .package h3 {
-        font-size: 1.3em;
+    .hero h1 {
+        font-size: 2rem;
     }
 
-    .package .price {
-        font-size: 2em;
+    .hero p {
+        font-size: 1rem;
     }
 
-    .package ul {
-        margin: 15px 0;
-    }
-
-    .package ul li {
-        font-size: 0.95em;
-        padding: 8px 0;
-    }
-
-    .package-btn {
-        width: calc(100% - 20px);
-        margin: 15px 10px;
-        padding: 12px 20px;
-        font-size: 0.9em;
-    }
-
-    /* Process Section */
-    .process-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .process-item {
-        padding: 20px 15px;
-    }
-
-    .process-icon {
-        width: 60px;
-        height: 60px;
-    }
-
-    .process-icon i {
-        font-size: 24px;
-    }
-
-    .process-item h3 {
-        font-size: 1.2em;
-    }
-
-    .process-item p {
-        font-size: 0.9em;
-    }
-
-    /* Contact Form */
     .contact-container {
-        padding: 20px 15px;
+        padding: 1rem;
     }
 
     .form-group {
-        margin-bottom: 15px;
+        margin-bottom: 1rem;
     }
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        padding: 10px;
-        font-size: 0.9em;
+    nav {
+        padding: 0.5rem;
     }
 
-    /* Footer */
-    .footer-content {
+    nav ul {
         flex-direction: column;
-        text-align: center;
-        padding: 30px 15px;
+        align-items: center;
     }
 
-    .footer-section {
-        margin-bottom: 20px;
-    }
-
-    .footer-section:last-child {
-        margin-bottom: 0;
+    nav ul li {
+        margin: 0.5rem 0;
     }
 }
 
-/* Small phones */
+/* Small Phone Styles */
 @media screen and (max-width: 480px) {
-    .packages h2, .touch-up-section h2 {
-        font-size: 1.8em;
+    .hero h1 {
+        font-size: 1.75rem;
     }
 
     .package {
-        padding: 20px 12px;
-    }
-
-    .package .price {
-        font-size: 1.8em;
-    }
-
-    .package-btn {
-        padding: 10px 16px;
-        font-size: 0.85em;
-    }
-
-    .process-icon {
-        width: 50px;
-        height: 50px;
-    }
-
-    .process-icon i {
-        font-size: 20px;
+        padding: 1rem;
     }
 }
 
