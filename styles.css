@@ -862,19 +862,22 @@ nav ul li a:hover {
 }
 
 /* Mobile Styles */
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .tabs {
-        display: none; /* Hide tabs on mobile */
+        display: none !important; /* Force hide tabs on mobile */
     }
 
     .tab-content {
-        display: block !important; /* Show all content */
+        display: block !important; /* Force show content */
     }
 
     .tab-pane {
-        display: block !important; /* Show all panes */
+        display: block !important; /* Force show panes */
         opacity: 1 !important;
+        visibility: visible !important;
         margin-bottom: 2rem;
+        height: auto !important;
+        overflow: visible !important;
     }
 
     .packages-container {
