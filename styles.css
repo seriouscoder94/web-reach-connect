@@ -863,19 +863,38 @@ nav ul li a:hover {
 
 /* Mobile Styles */
 @media only screen and (max-width: 768px) {
-    .nav-container ul {
-        display: none !important; /* Hide navigation links */
+    nav ul,
+    .nav-container ul,
+    header nav ul,
+    header .nav-container ul {
+        display: none !important; /* Hide navigation links with maximum specificity */
     }
 
-    .nav-container {
+    nav,
+    .nav-container,
+    header nav,
+    header .nav-container {
         justify-content: center !important; /* Center the logo */
         padding: 1rem !important;
+        text-align: center !important;
+        width: 100% !important;
     }
 
-    .logo {
+    .logo,
+    nav .logo,
+    .nav-container .logo,
+    header nav .logo {
         font-size: 1.5rem !important;
-        margin: 0 !important;
+        margin: 0 auto !important;
         text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    /* Hide all navigation elements except logo */
+    nav *:not(.logo),
+    .nav-container *:not(.logo) {
+        display: none !important;
     }
 
     .tabs {
@@ -917,6 +936,7 @@ nav ul li a:hover {
 
     .hero {
         padding: 2rem 1rem;
+        margin-top: 0 !important;
     }
 
     .hero h1 {
@@ -933,19 +953,6 @@ nav ul li a:hover {
 
     .form-group {
         margin-bottom: 1rem;
-    }
-
-    nav {
-        padding: 0.5rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 0.5rem 0;
     }
 }
 
