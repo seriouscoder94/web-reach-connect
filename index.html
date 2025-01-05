@@ -117,7 +117,7 @@
                     <li>Contact Form Integration</li>
                     <li>Basic Analytics Setup</li>
                 </ul>
-                <a href="#contact" class="btn package-btn" data-package="digital-starter">Get Started</a>
+                <a href="#contact" class="btn package-btn primary-btn">Get Started Now</a>
             </div>
 
             <div class="package featured">
@@ -128,10 +128,13 @@
                     <li>Advanced SEO Optimization</li>
                     <li>Content Management System</li>
                     <li>Social Media Integration</li>
-                    <li>Business Email Setup</li>
                     <li>Premium Analytics</li>
+                    <li>Lead Generation Forms</li>
+                    <li>Newsletter Integration</li>
+                    <li>Custom Contact Forms</li>
+                    <li>Speed Optimization</li>
                 </ul>
-                <a href="#contact" class="btn package-btn" data-package="business-growth">Get Started</a>
+                <a href="#contact" class="btn package-btn primary-btn featured-btn">Get Started Now</a>
             </div>
 
             <div class="package">
@@ -142,10 +145,61 @@
                     <li>E-commerce Integration</li>
                     <li>Custom Functionality</li>
                     <li>Advanced Security Features</li>
+                    <li>AI-Powered Chatbot Integration</li>
+                    <li>AI Content Optimization</li>
+                    <li>Smart Analytics Dashboard</li>
                     <li>Priority Support</li>
                     <li>Monthly Maintenance Available</li>
                 </ul>
-                <a href="#contact" class="btn package-btn" data-package="enterprise-connect">Get Started</a>
+                <a href="#contact" class="btn package-btn primary-btn">Get Started Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="touch-up" class="packages touch-up-section">
+        <h2>Website Touch-Up Packages</h2>
+        <p class="section-description">Give your existing website a fresh new look with our touch-up services</p>
+        <div class="package-grid">
+            <div class="package">
+                <h3>Quick Refresh</h3>
+                <p class="price">$499</p>
+                <ul>
+                    <li>Basic Design Updates</li>
+                    <li>Content Refresh</li>
+                    <li>Mobile Responsiveness Check</li>
+                    <li>Basic SEO Review</li>
+                    <li>48-Hour Turnaround</li>
+                </ul>
+                <a href="#contact" class="btn package-btn primary-btn">Get Started Now</a>
+            </div>
+
+            <div class="package featured">
+                <h3>Professional Makeover</h3>
+                <p class="price">$799</p>
+                <ul>
+                    <li>Complete UI/UX Review</li>
+                    <li>Content Restructuring</li>
+                    <li>Performance Optimization</li>
+                    <li>SEO Enhancement</li>
+                    <li>Social Media Integration</li>
+                    <li>5-Day Turnaround</li>
+                </ul>
+                <a href="#contact" class="btn package-btn primary-btn featured-btn">Get Started Now</a>
+            </div>
+
+            <div class="package">
+                <h3>Complete Overhaul</h3>
+                <p class="price">$1,099</p>
+                <ul>
+                    <li>Full Design Modernization</li>
+                    <li>Content Rewriting</li>
+                    <li>Advanced SEO Optimization</li>
+                    <li>Speed Optimization</li>
+                    <li>Security Updates</li>
+                    <li>Analytics Integration</li>
+                    <li>10-Day Turnaround</li>
+                </ul>
+                <a href="#contact" class="btn package-btn primary-btn">Get Started Now</a>
             </div>
         </div>
     </section>
@@ -164,10 +218,14 @@
                 </div>
                 <div class="form-group">
                     <label for="package">Interested Package</label>
-                    <select id="package" name="package">
-                        <option value="digital-starter">Digital Starter</option>
-                        <option value="business-growth">Business Growth</option>
-                        <option value="enterprise-connect">Enterprise Connect</option>
+                    <select id="package" name="package" required>
+                        <option value="">Select a Package</option>
+                        <option value="Digital Starter">Digital Starter Package</option>
+                        <option value="Business Growth">Business Growth Package</option>
+                        <option value="Enterprise Connect">Enterprise Connect Package</option>
+                        <option value="Quick Refresh">Quick Refresh</option>
+                        <option value="Professional Makeover">Professional Makeover</option>
+                        <option value="Complete Overhaul">Complete Overhaul</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -176,6 +234,7 @@
                 </div>
                 <button type="submit" class="submit-button">Send Message</button>
             </form>
+            <p class="contact-email">Or email us directly at: <a href="mailto:webreachconnect@gmail.com">webreachconnect@gmail.com</a></p>
         </div>
     </section>
 
@@ -188,13 +247,22 @@
             <div class="footer-section">
                 <h4>Contact</h4>
                 <p>Email: Webreachconnect@gmail.com</p>
-                <p>Phone: (312) 774-1514</p>
+               
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 Web Reach Connect. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Add EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin
+            emailjs.init("YOUR_PUBLIC_KEY");
+        })();
+    </script>
 
     <script src="script.js"></script>
 </body>

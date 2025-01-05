@@ -2,51 +2,45 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Handle contact form submission
     const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
+    
     if (contactForm) {
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = new FormData(contactForm);
-            const formProps = Object.fromEntries(formData);
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const selectedPackage = document.getElementById('package').value;
+            const message = document.getElementById('message').value;
             
-            try {
-                const response = await fetch('/submit-form', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(formProps),
-                });
-                
-                if (response.ok) {
-                    alert('Thank you for your message! We will contact you soon.');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Failed to submit form');
-                }
-            } catch (error) {
-                console.error('Error:', error);
-                alert('There was an error sending your message. Please try again or email us directly.');
-            }
+            // Create mailto link
+            const mailtoLink = `mailto:webreachconnect@gmail.com?subject=Website Inquiry: ${selectedPackage}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0APackage: ${selectedPackage}%0D%0A%0D%0AMessage: ${message}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Clear form
+            contactForm.reset();
         });
     }
 
-    // Handle package selection
-    document.querySelectorAll('.package-btn').forEach(button => {
-        button.addEventListener('click', (e) => {
-            const packageName = e.target.getAttribute('data-package');
-            const subjectField = document.querySelector('#subject');
-            const messageField = document.querySelector('#message');
-            
-            // Set subject based on package
-            if (subjectField) {
-                subjectField.value = `Interested in ${packageName.replace('-', ' ')} Package`;
+    // Package button click handlers
+    const packageButtons = document.querySelectorAll('.package-btn');
+    packageButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const packageType = this.closest('.package').querySelector('h3').textContent;
+            const packageSelect = document.getElementById('package');
+            if (packageSelect) {
+                // Find and select the matching option
+                for (let option of packageSelect.options) {
+                    if (option.text.includes(packageType)) {
+                        packageSelect.value = option.value;
+                        break;
+                    }
+                }
             }
-            
-            // Pre-fill message
-            if (messageField) {
-                messageField.value = `Hi, I'm interested in the ${packageName.replace('-', ' ')} Package. Please contact me with more information.`;
-            }
+            // Smooth scroll to contact form
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
         });
     });
 

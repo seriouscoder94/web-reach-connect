@@ -1,10 +1,21 @@
 {
   "name": "web-reach-connect",
   "version": "1.0.0",
-  "description": "Professional web design services website",
-  "main": "index.html",
-  "scripts": {},
-  "dependencies": {},
+  "description": "Web Reach Connect website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"
