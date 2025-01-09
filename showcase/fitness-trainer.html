@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Fitness Training - Personal Training & Fitness Programs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff4757;
+            --secondary-color: #2f3542;
+            --text-color: #333;
+            --light-bg: #f1f2f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px;
+            background: rgba(47, 53, 66, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.sticky {
+            padding: 15px;
+            background: rgba(47, 53, 66, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .primary-button {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .primary-button:hover {
+            background: #ff3344;
+            transform: translateY(-2px);
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .secondary-button:hover {
+            background: white;
+            color: var(--secondary-color);
+        }
+
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .services {
+            background: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .programs {
+            background: white;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .program-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .program-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .program-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+
+        .testimonials {
+            background: var(--light-bg);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .testimonial-rating {
+            color: #ffd700;
+            margin-bottom: 15px;
+        }
+
+        .contact {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .submit-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .submit-button:hover {
+            background: #ff3344;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            margin-right: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .wrc-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .wrc-link:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Elite Fitness</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#programs">Programs</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Body,<br>Transform Your Life</h1>
+            <p>Expert personal training tailored to your goals</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="button primary-button">Start Your Journey</a>
+                <a href="#programs" class="button secondary-button">View Programs</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Comprehensive fitness solutions for every goal</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Personal Training</h3>
+                <p>One-on-one sessions tailored to your specific needs and goals</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heart"></i>
+                <h3>Nutrition Planning</h3>
+                <p>Custom meal plans and nutritional guidance for optimal results</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-users"></i>
+                <h3>Group Training</h3>
+                <p>High-energy group sessions for motivation and community</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="programs" class="programs">
+        <div class="section-title">
+            <h2>Training Programs</h2>
+            <p>Choose the perfect program for your fitness journey</p>
+        </div>
+        <div class="programs-grid">
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438" alt="Strength Training" class="program-image">
+                <div class="program-content">
+                    <h3>Strength Training</h3>
+                    <p>Build muscle and increase strength</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1601422407692-ec4eeec1d9b3" alt="HIIT Training" class="program-image">
+                <div class="program-content">
+                    <h3>HIIT Training</h3>
+                    <p>High-intensity workouts for maximum results</p>
+                </div>
+            </div>
+            <div class="program-card">
+                <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a" alt="Weight Loss" class="program-image">
+                <div class="program-content">
+                    <h3>Weight Loss</h3>
+                    <p>Targeted programs for sustainable weight loss</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="section-title">
+            <h2>Client Success Stories</h2>
+            <p>Real results from real people</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80" alt="Sarah Johnson" class="testimonial-image">
+                    <div>
+                        <h3>Sarah Johnson</h3>
+                        <p>Weight Loss Journey</p>
+                    </div>
+                </div>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Lost 30 pounds in 6 months! The personalized approach and constant support made all the difference."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e" alt="Mike Thompson" class="testimonial-image">
+                    <div>
+                        <h3>Mike Thompson</h3>
+                        <p>Strength Training</p>
+                    </div>
+                </div>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"Incredible results in just 3 months. The expertise and motivation provided helped me exceed my goals."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Emily Chen" class="testimonial-image">
+                    <div>
+                        <h3>Emily Chen</h3>
+                        <p>HIIT Training</p>
+                    </div>
+                </div>
+                <div class="testimonial-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The HIIT programs are challenging but so worth it. I'm in the best shape of my life!"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2>Start Your Fitness Journey</h2>
+            <p>Book your free consultation today</p>
+        </div>
+        <div class="contact-container">
+            <form class="contact-form" id="consultation-form" onsubmit="handleSubmission(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="program">Interested Program</label>
+                    <select id="program" name="program" required>
+                        <option value="">Select a program</option>
+                        <option value="strength">Strength Training</option>
+                        <option value="hiit">HIIT Training</option>
+                        <option value="weight-loss">Weight Loss</option>
+                        <option value="nutrition">Nutrition Planning</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Goals</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Book Free Consultation</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Fitness Street</p>
+                <p>City, State 12345</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@elitefitness.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hours</h3>
+                <p>Monday - Friday: 6:00 AM - 9:00 PM</p>
+                <p>Saturday: 7:00 AM - 6:00 PM</p>
+                <p>Sunday: 8:00 AM - 4:00 PM</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Website designed and developed by <a href="https://webreachconnect.com" class="wrc-link" target="_blank">Web Reach Connect</a></p>
+            <p>Elevating businesses through modern web solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navigation
+        window.onscroll = function() {
+            if (window.pageYOffset > 50) {
+                document.querySelector('nav').classList.add('sticky');
+            } else {
+                document.querySelector('nav').classList.remove('sticky');
+            }
+        };
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form Submission Handler
+        function handleSubmission(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            // Show success message
+            alert('Thank you for your interest! We will contact you shortly to schedule your free consultation.');
+            
+            // Reset form
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

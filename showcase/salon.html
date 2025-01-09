@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Beauty Salon - Professional Hair & Beauty Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        nav {
+            position: fixed;
+            width: 100%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.sticky {
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035') center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .primary-button {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .primary-button:hover {
+            background: #c19b2e;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .services {
+            background: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .service-card .price {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        .team {
+            background: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stylist-card {
+            text-align: center;
+        }
+
+        .stylist-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+
+        .stylist-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .gallery {
+            background: var(--light-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .booking {
+            background: white;
+        }
+
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .submit-button {
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 500;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background: #c19b2e;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            padding: 50px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 20px;
+        }
+
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5em;
+            margin-right: 20px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .wrc-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .wrc-link:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Luxe Beauty</div>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#team">Our Team</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#booking">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Your True Beauty</h1>
+            <p>Experience luxury hair care and beauty treatments</p>
+            <a href="#booking" class="button primary-button">Book Appointment</a>
+        </div>
+    </header>
+
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Indulge in our premium beauty treatments</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1522336572468-97b06e8ef143" alt="Hair Styling">
+                <h3>Hair Styling</h3>
+                <p>Custom cuts, coloring, and styling for any occasion</p>
+                <div class="price">From $50</div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66" alt="Makeup">
+                <h3>Makeup</h3>
+                <p>Professional makeup for events and special occasions</p>
+                <div class="price">From $75</div>
+            </div>
+            <div class="service-card">
+                <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b" alt="Nail Care">
+                <h3>Nail Care</h3>
+                <p>Manicures, pedicures, and nail art</p>
+                <div class="price">From $35</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="section-title">
+            <h2>Meet Our Stylists</h2>
+            <p>Experienced professionals dedicated to your beauty</p>
+        </div>
+        <div class="team-grid">
+            <div class="stylist-card">
+                <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f" alt="Sarah" class="stylist-image">
+                <h3>Sarah Anderson</h3>
+                <p>Master Stylist</p>
+            </div>
+            <div class="stylist-card">
+                <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6" alt="Michael" class="stylist-image">
+                <h3>Michael Chen</h3>
+                <p>Color Specialist</p>
+            </div>
+            <div class="stylist-card">
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2" alt="Emma" class="stylist-image">
+                <h3>Emma Rodriguez</h3>
+                <p>Makeup Artist</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="section-title">
+            <h2>Our Work</h2>
+            <p>Browse our latest styles and transformations</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486" alt="Hairstyle 1">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df" alt="Hairstyle 2">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1552858725-2758b5fb1286" alt="Hairstyle 3">
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e" alt="Hairstyle 4">
+            </div>
+        </div>
+    </section>
+
+    <section id="booking" class="booking">
+        <div class="section-title">
+            <h2>Book an Appointment</h2>
+            <p>Schedule your beauty transformation</p>
+        </div>
+        <form class="booking-form" id="appointment-form" onsubmit="handleBooking(event)">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="haircut">Haircut & Styling</option>
+                    <option value="color">Hair Coloring</option>
+                    <option value="makeup">Makeup</option>
+                    <option value="nails">Nail Care</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="stylist">Preferred Stylist</label>
+                <select id="stylist" name="stylist">
+                    <option value="">Any available stylist</option>
+                    <option value="sarah">Sarah Anderson</option>
+                    <option value="michael">Michael Chen</option>
+                    <option value="emma">Emma Rodriguez</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="date">Preferred Date</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Preferred Time</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <button type="submit" class="submit-button">Book Appointment</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Beauty Lane</p>
+                <p>City, State 12345</p>
+            </div>
+            <div class="footer-section">
+                <h3>Hours</h3>
+                <p>Tuesday - Saturday: 9:00 AM - 7:00 PM</p>
+                <p>Sunday: 10:00 AM - 5:00 PM</p>
+                <p>Monday: Closed</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> info@luxebeauty.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>Website designed and developed by <a href="https://webreachconnect.com" class="wrc-link" target="_blank">Web Reach Connect</a></p>
+            <p>Elevating businesses through modern web solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky Navigation
+        window.onscroll = function() {
+            if (window.pageYOffset > 50) {
+                document.querySelector('nav').classList.add('sticky');
+            } else {
+                document.querySelector('nav').classList.remove('sticky');
+            }
+        };
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Booking Form Handler
+        function handleBooking(event) {
+            event.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const bookingDetails = {};
+            formData.forEach((value, key) => {
+                bookingDetails[key] = value;
+            });
+
+            // Show success message
+            alert('Thank you for booking with us! We will confirm your appointment shortly.');
+            
+            // Reset form
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
